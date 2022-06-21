@@ -1,0 +1,13 @@
+/* Estilos para cards de las tareas*/
+
+.card {
+    width: 18rem
+}
+
+.buttonsContainer {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
