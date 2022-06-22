@@ -27,15 +27,36 @@ function Signup() {
 
     return (
         <div className="container">
-            <h1>Crear Usuario</h1>
 
-            <form className="grid" onSubmit={handleSignup}>
-                <input ref={name} type="text" className="row" placeholder="Nombre" />
-                <input ref={lastName} type="text" className="row" placeholder="Apellido" />
-                <input ref={email} type="text" className="row" placeholder="email" />
-                <input ref={password} type="password" className="row" placeholder="password" />
-                <button type="submit" className="row">Crear Usuario</button>
-            </form>
+            <div className="containerForm">
+                <h3 className="titleForm mt-4 text-center">Crear Usuario</h3>
+
+                <form className="mt-4" onSubmit={handleSignup}>
+                    <div className="mb-3">
+                        <label className="form-label ms-1">Nombres</label>
+                        <input type="text" ref={name} className="form-control" placeholder="Nombre" />
+
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label ms-1">Apellidos</label>
+                        <input type="text" ref={lastName} className="form-control" placeholder="Apellido" />
+
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label ms-1">Correo Electronico</label>
+                        <input type="email" ref={email} className="form-control" placeholder="email" />
+
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label ms-1">Contraseña</label>
+                        <input type="password" className="form-control" ref={password} placeholder="password" />
+                    </div>
+
+                    <button type="submit" className="btn btn-primary">Registrarse</button>
+                </form>
+
+            </div>
+
         </div>
     )
 }

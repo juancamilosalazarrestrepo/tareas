@@ -11,14 +11,15 @@ res.json(tasks);
 } 
 
 taskController.createTask= async (req,res) => { 
-    const {description} = req.body;
-    const task = await Task.create({description, UserId: req.auth.id});
+    const {title,description} = req.body;
+    const task = await Task.create({title,description, UserId: req.auth.id});
     res.json(task)
 }
 
 taskController.editTask= async (req,res) => { 
-    const {description,done} = req.body;
+    const {title,description,done} = req.body;
     const taskedit = await Task.update({
+        title:title,
         description:description,
         done:done
     }, {

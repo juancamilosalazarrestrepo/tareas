@@ -25,9 +25,13 @@ function DoneTasks() {
 
     return (
         <div className="container">
-            <h1>Mis lista de Tareas Realizadas</h1>
+            <div className="containerTasks">
+                <h1>Mis lista de Tareas Realizadas</h1>
+                <div className="tasks">
 
-            {currentDoneTasks.map(tarea => <Task description={tarea.description} idTask={tarea.id} done={tarea.done} />)}
+                    {currentDoneTasks.map(tarea => <Task title={tarea.title} description={tarea.description} idTask={tarea.id} done={tarea.done} />)}
+                </div>
+            </div>
         </div>
     )
 }

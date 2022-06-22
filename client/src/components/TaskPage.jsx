@@ -23,9 +23,15 @@ function TaskPage() {
 
     return (
         <div className="container">
-            <h1>Mis lista de Tareas</h1>
+            <div className="containerTasks">
+                <h1>Mis lista de Tareas</h1>
+                <div className="tasks">
+                    {currentTasks.map(tarea => <Task title={tarea.title} description={tarea.description} idTask={tarea.id} done={tarea.done} />)}
 
-            {currentTasks.map(tarea => <Task description={tarea.description} idTask={tarea.id} done={tarea.done} />)}
+                </div>
+
+            </div>
+
         </div>
     )
 }

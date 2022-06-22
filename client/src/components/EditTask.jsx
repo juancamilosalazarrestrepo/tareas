@@ -8,7 +8,7 @@ function EditTask() {
 
 
     const { id } = useParams();
-
+    const title = useRef(null);
     const description = useRef(null);
     const done = useRef(null);
 
@@ -42,7 +42,7 @@ function EditTask() {
         console.log(id)
 
         console.log('click on submit');
-        await taskServices.editTask(description.current.value, id, done.current.value);
+        await taskServices.editTask(title.current.value, description.current.value, id, done.current.value);
         navigate("/task");
         window.location.reload();
 
@@ -50,19 +50,38 @@ function EditTask() {
 
     return (
         <div className="container">
-            <h1>Editar Tarea</h1>
 
-            <form className="grid" onSubmit={editTask}>
-                <input ref={description} type="text" className="row" placeholder="" />
-                <select ref={done} className="form-select" aria-label="Default select example">
+            <div className="containerForm">
+                <h3 className="titleForm mt-4 text-center">Editar Tarea</h3>
 
-                    <option value="1">Hecha</option>
-                    <option selected value="0">Sin Terminar</option>
+                <form className="mt-3" onSubmit={editTask}>
+                    <div className="mb-3">
+                        <label className="form-label ms-1">titulo de la tarea</label>
+                        <input type="text" placeholder="Titulo de la tarea" ref={title} className="form-control" />
 
-                </select>
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label ms-1">Descripcion de la tarea</label>
+                        <input type="text" placeholder="Descripcion de la tarea" ref={description} className="form-control" />
 
-                <button type="submit" className="row">Guardar</button>
-            </form>
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label ms-1">Estatus de la tarea</label>
+                        <select ref={done} className="form-select" aria-label="Default select example">
+
+                            <option value="1">Hecha</option>
+                            <option selected value="0">Sin Terminar</option>
+
+                        </select>
+                    </div>
+
+
+
+                    <button type="submit" className="btn btn-primary">Guardar</button>
+                </form>
+
+            </div>
+
         </div>
     )
 }

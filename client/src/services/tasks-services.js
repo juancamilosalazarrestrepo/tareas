@@ -13,17 +13,17 @@ const getAllTasks = () => {
 }
 
 
-const createTask = (description) => {
-    return axios.post(API_URL,{description},{
+const createTask = (title,description) => {
+    return axios.post(API_URL,{title,description},{
         headers:{
             "Authorization":"Bearer " + token.replaceAll('"','') 
         }
     });
 }
 
-const editTask = (description,id,done) => {
+const editTask = (title,description,id,done) => {
     
-    return axios.put(API_URL +`/${id}`,{description,done},{
+    return axios.put(API_URL +`/${id}`,{title,description,done},{
         headers:{
             "Authorization":"Bearer " + token.replaceAll('"','') 
         }
